@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.lucasbais.tinyandroidapp.TinyAndroidApplication;
 import com.lucasbais.tinyandroidapp.injection.components.ActivityComponent;
+import com.lucasbais.tinyandroidapp.injection.components.DaggerActivityComponent;
 import com.lucasbais.tinyandroidapp.injection.modules.ActivityModule;
 
 /**
@@ -32,10 +33,10 @@ public abstract class BaseFragmentActivity extends AppCompatActivity implements 
 
     public ActivityComponent activityComponent() {
         if (activityComponent == null) {
-//            activityComponent = DaggerActivityComponent.builder()
-//                    .applicationComponent(TinyAndroidApplication.get(this).getComponent())
-//                    .activityModule(new ActivityModule(this))
-//                    .build();
+            activityComponent = DaggerActivityComponent.builder()
+                    .applicationComponent(TinyAndroidApplication.get(this).getComponent())
+                    .activityModule(new ActivityModule(this))
+                    .build();
         }
         return activityComponent;
     }

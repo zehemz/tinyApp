@@ -1,14 +1,22 @@
 package com.lucasbais.tinyandroidapp.repository;
 
+import android.util.Base64;
+
 import com.google.gson.Gson;
 import com.lucasbais.tinyandroidapp.client.IRestApiClient;
 import com.lucasbais.tinyandroidapp.client.ApiClient;
 import com.lucasbais.tinyandroidapp.dto.AuthUser;
 
+import java.io.IOException;
+import java.net.URLEncoder;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;

@@ -25,8 +25,6 @@ public class MainFragmentActivity extends BaseFragmentActivity {
     @Inject
     MainPresenter actions;
 
-    @Inject
-    TweeterRepositoryImp tweeterRepositoryImp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

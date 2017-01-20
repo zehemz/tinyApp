@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.lucasbais.tinyandroidapp.dto.AuthUser;
 import com.lucasbais.tinyandroidapp.executors.IPostExecutionThread;
 import com.lucasbais.tinyandroidapp.executors.IThreadExecutor;
 import com.lucasbais.tinyandroidapp.executors.JobExecutor;
@@ -79,8 +80,14 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    public ITweeterRepository provideTwitterRepository(final IRestApiClient restApiClient) {
-        return new TweeterRepositoryImp(restApiClient, null); // TODO
+    public ITweeterRepository provideTwitterRepository(final IRestApiClient restApiClient,
+                                                       IPreferencesRepository preferencesRepository,
+                                                       IThreadExecutor threadExecutor,
+                                                       IPostExecutionThread postExecutionThread) {
+        return new TweeterRepositoryImp(restApiClient,
+                preferencesRepository,
+                threadExecutor,
+                postExecutionThread);
     }
 
     @Provides

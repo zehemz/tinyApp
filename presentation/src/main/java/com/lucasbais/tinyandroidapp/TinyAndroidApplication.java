@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 
 import com.lucasbais.tinyandroidapp.injection.components.ApplicationComponent;
+import com.lucasbais.tinyandroidapp.injection.components.DaggerApplicationComponent;
+import com.lucasbais.tinyandroidapp.injection.modules.ApplicationModule;
 
 
 /**
@@ -17,10 +19,10 @@ public class TinyAndroidApplication extends Application {
     @Override
     public void onCreate(){
         super.onCreate();
-//        applicationComponent = DaggerApplicationComponent.builder()
-//                .applicationModule(new ApplicationModule(this))
-//                .build();
-//        applicationComponent.inject(this);
+        applicationComponent = DaggerApplicationComponent.builder()
+                .applicationModule(new ApplicationModule(this))
+                .build();
+        applicationComponent.inject(this);
     }
 
     public ApplicationComponent getComponent() {

@@ -6,6 +6,7 @@ import com.lucasbais.tinyandroidapp.executors.IThreadExecutor;
 import com.lucasbais.tinyandroidapp.injection.modules.ApplicationModule;
 import com.lucasbais.tinyandroidapp.repository.IPreferencesRepository;
 import com.lucasbais.tinyandroidapp.client.IRestApiClient;
+import com.lucasbais.tinyandroidapp.repository.ITweeterRepository;
 
 import javax.inject.Singleton;
 
@@ -17,11 +18,12 @@ import dagger.Component;
 })
 public interface ApplicationComponent {
 
-    void inject(TinyAndroidApplication turboApplication);
+    void inject(TinyAndroidApplication tinyAndroidApplication);
 
     IPreferencesRepository preferencesRepository();
     IThreadExecutor threadExecutor();
     IPostExecutionThread postExecutionThread();
     IRestApiClient restApiClient();
+    ITweeterRepository twitterRepository();
 
 }

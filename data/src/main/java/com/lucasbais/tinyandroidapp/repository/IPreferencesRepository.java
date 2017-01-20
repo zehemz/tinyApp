@@ -10,4 +10,6 @@ public interface IPreferencesRepository {
     String getAppSettings();
 
     AuthUser getAuthUser();
+
+    void setUser(AuthUser authUser);
 }
