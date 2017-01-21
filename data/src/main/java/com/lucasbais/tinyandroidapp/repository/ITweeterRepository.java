@@ -1,6 +1,7 @@
 package com.lucasbais.tinyandroidapp.repository;
 
 import com.lucasbais.tinyandroidapp.dto.AuthUser;
+import com.lucasbais.tinyandroidapp.dto.TweetList;
 
 import rx.Single;
 
@@ -10,4 +11,6 @@ import rx.Single;
 
 public interface ITweeterRepository {
     Single<AuthUser> auth();
+
+    Single<TweetList> search(String query);
 }

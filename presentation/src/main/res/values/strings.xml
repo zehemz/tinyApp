@@ -7,4 +7,5 @@
 
     <string name="auth0_client_id">L09wP8UgOycvRyuAzGQktUmaltf4C6gZ</string>
     <string name="auth0_domain">zehemz.auth0.com</string>
+    <string name="search">Buscar</string>
 </resources>

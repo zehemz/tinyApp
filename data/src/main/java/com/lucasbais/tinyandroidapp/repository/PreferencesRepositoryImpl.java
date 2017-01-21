@@ -17,8 +17,8 @@ public class PreferencesRepositoryImpl implements IPreferencesRepository {
 
     private final static String DEF_BASE_URL = "https://api.twitter.com/";
     private final static String BASE_URL_KEY = "url_base";
-    private final static String TOKEN_TYPE_KEY = "url_base";
-    private final static String ACCESS_TOKEN_KEY = "url_base";
+    private final static String TOKEN_TYPE_KEY = "token_type";
+    private final static String ACCESS_TOKEN_KEY = "access_token";
 
     @Inject
     public PreferencesRepositoryImpl(SharedPreferences sharedPreferences) {
@@ -38,7 +38,9 @@ public class PreferencesRepositoryImpl implements IPreferencesRepository {
 
     @Override
     public void setUser(AuthUser authUser) {
-        Log.d("USER token_type", authUser.token_type);
-        Log.d("USER access_token", authUser.access_token);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putString(TOKEN_TYPE_KEY, authUser.token_type);
+        edit.putString(ACCESS_TOKEN_KEY, authUser.access_token);
+        edit.commit();
     }
 }

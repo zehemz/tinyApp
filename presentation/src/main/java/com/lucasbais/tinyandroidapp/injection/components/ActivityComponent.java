@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.lucasbais.tinyandroidapp.injection.modules.ActivityModule;
 import com.lucasbais.tinyandroidapp.injection.name.ActivityScoped;
-import com.lucasbais.tinyandroidapp.ui.main.MainFragmentActivity;
+import com.lucasbais.tinyandroidapp.ui.main.SearchFragmentActivity;
 
 import dagger.Component;
 
@@ -16,7 +16,7 @@ import dagger.Component;
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {
 
-    void inject(MainFragmentActivity activity);
+    void inject(SearchFragmentActivity activity);
 
     Context context();
 }
