@@ -9,9 +9,11 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+
 import com.lucasbais.tinyandroidapp.R;
 import com.lucasbais.tinyandroidapp.dto.TweetList;
 import com.lucasbais.tinyandroidapp.ui.base.BaseFragmentActivity;
+
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
@@ -20,9 +22,10 @@ import butterknife.BindView;
 
 public class SearchFragmentActivity extends BaseFragmentActivity
         implements SearchContract.View,
-        SearchView.OnQueryTextListener{
+        SearchView.OnQueryTextListener {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     @Inject
     MainPresenter actions;
@@ -76,8 +79,18 @@ public class SearchFragmentActivity extends BaseFragmentActivity
     }
 
     @Override
-    public void setTweets(TweetList next) {
-        twitterListFragment.setTweets(next);
+    public void setTweets(TweetList tweets) {
+        twitterListFragment.setTweets(tweets);
+    }
+
+    @Override
+    public void showLoading(boolean loading) {
+
+    }
+
+    @Override
+    public void showErrorMessage(String string) {
+
     }
 
     @Override
@@ -87,6 +100,12 @@ public class SearchFragmentActivity extends BaseFragmentActivity
         return true;
     }
 
+    /**
+     * Comportamiento opcional, se puede eliminar a gusto.
+     *
+     * @param newText
+     * @return
+     */
     @Override
     public boolean onQueryTextChange(String newText) {
         final String queryString = newText;

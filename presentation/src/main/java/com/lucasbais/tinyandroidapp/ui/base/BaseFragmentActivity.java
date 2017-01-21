@@ -35,7 +35,7 @@ public abstract class BaseFragmentActivity extends AppCompatActivity
     private void placeFragment() {
         Fragment fragment = getFragment();
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.content_main, fragment,  fragment.getTag())
+                .replace(R.id.content_main, fragment, fragment.getTag())
                 .commit();
     }
 

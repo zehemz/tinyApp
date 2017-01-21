@@ -1,4 +1,5 @@
 package com.lucasbais.tinyandroidapp.ui.main;
+
 import android.util.Log;
 
 import com.lucasbais.tinyandroidapp.dto.AuthUser;
@@ -20,11 +21,13 @@ public class MainPresenter extends BasePresenter<SearchContract.View> implements
 
     private ITweeterRepository tweeterRepository;
     private boolean enableToSearch;
+    private String lastSearch;
 
     @Inject
     public MainPresenter(ITweeterRepository tweeterRepository) {
         this.tweeterRepository = tweeterRepository;
         enableToSearch = false;
+        lastSearch = "";
     }
 
     @Override
@@ -34,6 +37,9 @@ public class MainPresenter extends BasePresenter<SearchContract.View> implements
     }
 
     private void autenticate() {
+
+        getView().showLoading(true);
+
         tweeterRepository.auth().subscribe(new DefaultSubscriber<AuthUser>() {
             @Override
             public void onNext(AuthUser next) {
@@ -56,14 +62,17 @@ public class MainPresenter extends BasePresenter<SearchContract.View> implements
     }
 
     @Override
-    public void searchOnTwitter(String s) {
-        if(!enableToSearch) return;
+    public void searchOnTwitter(String newSearch) {
 
-        tweeterRepository.search(s).subscribe(new DefaultSubscriber<TweetList>() {
+        if (!enableToSearch || lastSearch.equals(newSearch)) return;
+
+        lastSearch = newSearch;
+
+        tweeterRepository.search(newSearch).subscribe(new DefaultSubscriber<TweetList>() {
             @Override
             public void onNext(TweetList next) {
                 super.onNext(next);
-                getView().setTweets(next);
+                manageSearchResult(next);
                 unsubscribe();
             }
 
@@ -76,15 +85,22 @@ public class MainPresenter extends BasePresenter<SearchContract.View> implements
         });
     }
 
+    private void manageSearchResult(TweetList next) {
+        getView().setTweets(next);
+        getView().showLoading(false);
+    }
+
     private void enableToSearch() {
         this.enableToSearch = true;
     }
 
     private void requestError(int code) {
         Log.e("error", String.valueOf(code));
+        getView().showLoading(false);
     }
 
     private void authError(int code) {
         Log.e("error", String.valueOf(code));
+        getView().showLoading(false);
     }
 }

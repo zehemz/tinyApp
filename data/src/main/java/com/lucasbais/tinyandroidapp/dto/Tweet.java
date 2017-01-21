@@ -30,7 +30,7 @@ public class Tweet {
     public TwitterUser user;
 
     @Override
-    public String  toString(){
+    public String toString() {
         return text;
     }
 }

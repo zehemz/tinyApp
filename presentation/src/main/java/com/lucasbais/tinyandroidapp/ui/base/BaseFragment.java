@@ -16,6 +16,7 @@ public abstract class BaseFragment extends Fragment {
 
     public interface OnFragmentInteractionListener {
         void onFragmentAttached();
+
         void onFragmentDetached();
     }
 
@@ -46,7 +47,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if(unbinder!=null)
+        if (unbinder != null)
             unbinder.unbind();
     }
 }

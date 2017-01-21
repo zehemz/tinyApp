@@ -12,6 +12,10 @@ public interface SearchContract {
     interface View extends ViewContract {
 
         void setTweets(TweetList next);
+
+        void showLoading(boolean loading);
+
+        void showErrorMessage(String string);
     }
 
     interface Actions {

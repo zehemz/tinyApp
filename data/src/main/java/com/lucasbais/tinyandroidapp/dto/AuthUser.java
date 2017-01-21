@@ -8,8 +8,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class AuthUser {
 
-    @SerializedName("token_type") public String token_type;
-    @SerializedName("access_token") public String access_token;
+    @SerializedName("token_type")
+    public String token_type;
+    @SerializedName("access_token")
+    public String access_token;
 
     public AuthUser(String token_type, String access_token) {
         this.token_type = token_type;

@@ -21,9 +21,13 @@ public interface ApplicationComponent {
     void inject(TinyAndroidApplication tinyAndroidApplication);
 
     IPreferencesRepository preferencesRepository();
+
     IThreadExecutor threadExecutor();
+
     IPostExecutionThread postExecutionThread();
+
     IRestApiClient restApiClient();
+
     ITweeterRepository twitterRepository();
 
 }

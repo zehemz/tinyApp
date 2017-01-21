@@ -16,16 +16,19 @@ import butterknife.ButterKnife;
  */
 
 public class TweetHolder extends RecyclerView.ViewHolder {
-    @BindView(R.id.text_tweet) TextView textTweet;
-    @BindView(R.id.text_user) TextView textUser;
-    @BindView(R.id.image_user_logo) ImageView imageLogo;
+    @BindView(R.id.text_tweet)
+    TextView textTweet;
+    @BindView(R.id.text_user)
+    TextView textUser;
+    @BindView(R.id.image_user_logo)
+    ImageView imageLogo;
 
     public TweetHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
     }
 
-    public void populate(Tweet tweet){
+    public void populate(Tweet tweet) {
         textTweet.setText(tweet.text);
         textUser.setText(tweet.user.name);
     }

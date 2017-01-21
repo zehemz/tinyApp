@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.lucasbais.tinyandroidapp.R;
 import com.lucasbais.tinyandroidapp.dto.TweetList;
 
@@ -29,7 +30,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetHolder> {
 
     @Override
     public int getItemCount() {
-        return tweetList !=null && tweetList.tweets != null? tweetList.tweets.size() : 0;
+        return tweetList != null && tweetList.tweets != null ? tweetList.tweets.size() : 0;
     }
 
     @Override

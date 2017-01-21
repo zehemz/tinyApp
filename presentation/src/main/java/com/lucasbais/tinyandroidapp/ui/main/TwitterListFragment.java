@@ -1,6 +1,5 @@
 package com.lucasbais.tinyandroidapp.ui.main;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,7 +18,8 @@ import butterknife.ButterKnife;
 
 public class TwitterListFragment extends BaseFragment {
 
-    @BindView(R.id.twitterRecyclerView) RecyclerView recyclerView;
+    @BindView(R.id.twitterRecyclerView)
+    RecyclerView recyclerView;
 
     private TweetAdapter tweetAdapter;
 
